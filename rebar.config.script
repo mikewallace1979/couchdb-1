@@ -37,7 +37,7 @@ DepDescs = [
     {fauxton,           "fauxton",          {branch, "master"}, [raw]},
     {folsom,            "folsom",           {branch, "master"}},
     {global_changes,    "global-changes",   {branch, "master"}},
-    {goldrush,          "goldrush",         {tag, "0.1.6"}},
+    {goldrush,          {url, "git://github.com/DeadZen/goldrush.git"},         {tag, "0.1.6"}},
     {ibrowse,           "ibrowse",          {branch, "master"}},
     {ioq,               "ioq",              {branch, "master"}},
     {jiffy,             "jiffy",            {branch, "master"}},
@@ -46,12 +46,15 @@ DepDescs = [
     {mochiweb,          "mochiweb",         {branch, "master"}},
     {oauth,             "oauth",            {branch, "master"}},
     {rexi,              "rexi",             {branch, "master"}},
-    {snappy,            "snappy",           {branch, "1994-merge-rcouch"}}
+    {snappy,            "snappy",           {branch, "1994-merge-rcouch"}},
+    {riak_ensemble,     {url, "/Users/mikewallace/src/github/basho/riak_ensemble"},    {branch, "develop"}}
 ],
 
 BaseUrl = "https://git-wip-us.apache.org/repos/asf/",
 
 MakeDep = fun
+    ({goldrush, {url, Url}, Version}) ->
+        {goldrush, "0.1.6", {git, Url, Version}};
     ({AppName, {url, Url}, Version}) ->
         {AppName, ".*", {git, Url, Version}};
     ({AppName, {url, Url}, Version, Options}) ->
