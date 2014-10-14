@@ -22,7 +22,7 @@ DepDescs = [
     {couch_log,         "couch-log",        {branch, "master"}},
     {config,            "config",           {branch, "master"}},
     {chttpd,            "chttpd",           {branch, "master"}},
-    {couch,             "couch",            {branch, "master"}},
+    {couch,             {url, "git://github.com/mikewallace1979/couchdb-couch"},            {branch, "wip-paxos"}},
     {couch_index,       "couch-index",      {branch, "master"}},
     {couch_mrview,      "couch-mrview",     {branch, "master"}},
     {couch_replicator,  "couch-replicator", {branch, "master"}},
@@ -47,7 +47,7 @@ DepDescs = [
     {oauth,             "oauth",            {branch, "master"}},
     {rexi,              "rexi",             {branch, "master"}},
     {snappy,            "snappy",           {branch, "1994-merge-rcouch"}},
-    {riak_ensemble,     {url, "/Users/mikewallace/src/github/basho/riak_ensemble"},    {branch, "develop"}}
+    {riak_ensemble,     {url, "git://github.com/mikewallace1979/riak_ensemble"},    {branch, "wip-couch-backend"}}
 ],
 
 BaseUrl = "https://git-wip-us.apache.org/repos/asf/",
