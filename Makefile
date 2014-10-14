@@ -65,7 +65,7 @@ docker-stop:
 eunit: export BUILDDIR = $(shell pwd)
 eunit: compile
 	@rebar setup_eunit
-	@rebar -r eunit skip_deps=meck,mochiweb,lager,snappy,couch_replicator,fabric,folsom
+	@rebar -r eunit skip_deps=meck,mochiweb,lager,snappy,couch_replicator,fabric,folsom,config
 
 javascript: compile
 	@dev/run test/javascript/run
