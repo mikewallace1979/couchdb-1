@@ -112,6 +112,7 @@ def write_configs(opts):
             "prefix": COUCHDB,
             "package_author_name": "The Apache Software Foundation",
             "data_dir": os.path.join(DEV_PATH, "lib", node, "data"),
+            "ensemble_dir": os.path.join(DEV_PATH, "lib", node, "data/ensembles"),
             "view_index_dir": os.path.join(DEV_PATH, "lib", node, "data"),
             "node_name": "-name %s@127.0.0.1" % node,
             "cluster_port": str((10000 * i) + 5984),
@@ -119,6 +120,8 @@ def write_configs(opts):
         }
         if not os.path.exists(args["data_dir"]):
             os.makedirs(args["data_dir"])
+        if not os.path.exists(args["ensemble_dir"]):
+            os.makedirs(args["ensemble_dir"])
         write_config(opts, node, args)
 
 
