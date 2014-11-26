@@ -84,6 +84,7 @@ def setup():
     setup_dirs(ctx)
     check_beams(ctx)
     setup_configs(ctx)
+    reset_nodes_db(ctx)
     return ctx
 
 
@@ -249,6 +250,14 @@ def hashify(pwd, salt=COMMON_SALT, iterations=10, keylen=20):
     """
     derived_key = pbkdf2_hex(pwd, salt, iterations, keylen)
     return "-pbkdf2-%s,%s,%s" % (derived_key, salt, iterations)
+
+
+@log('Reset nodes DB')
+def reset_nodes_db(ctx):
+    nodes_db_glob = os.path.join(ctx['devdir'], 'lib', 'node*', 'data', '_nodes.couch')
+    nodes_db_files = glob.glob(nodes_db_glob)
+    for db_file in nodes_db_files:
+        os.remove(db_file)
 
 
 def startup(ctx):
