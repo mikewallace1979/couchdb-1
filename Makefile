@@ -163,6 +163,7 @@ javascript: all
 	@mkdir -p share/www/script/test
 	@cp test/javascript/tests/lorem*.txt share/www/script/test/
 	@dev/run -q --with-admin-party-please test/javascript/run
+	@dev/run -n 1 -q --with-admin-party-please test/javascript/run test/javascript/tests/users_db_security.js
 	@rm -rf share/www/script
 
 build-test:
